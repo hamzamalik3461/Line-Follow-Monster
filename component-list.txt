@@ -1,0 +1,48 @@
+Exhaustive Bill of Materials (BOM) - High-Speed ESP32 Line Follower
+
+================================================================================
+1. CORE ELECTRONICS & SENSORS
+================================================================================
+[ ] 1x ESP32 NodeMCU Development Board (30-pin, ESP-WROOM-32)
+[ ] 1x Pololu QTR-8RC Reflectance Sensor Array (8 IR Channel)
+[ ] 1x TB6612FNG Dual H-Bridge Motor Driver Module
+[ ] 1x LM2596 or MP1584 Buck Converter (Step-Down DC-DC Voltage Regulator)
+
+================================================================================
+2. DRIVE & MOTORS
+================================================================================
+[ ] 2x N20 Micro Metal Gearmotors (6V / 12V, 600 - 1000 RPM recommended)
+[ ] 2x N20 Motor Mounting Brackets (Plastic/Aluminum)
+[ ] 2x High-Grip Rubber/Silicone Wheels (3mm D-shaft, ~32-44mm diameter)
+[ ] 1x Mini Metal or Nylon Ball Caster Wheel (Front/Rear 3rd point contact)
+
+================================================================================
+3. POWER & SWITCHING
+================================================================================
+[ ] 1x 2S LiPo Battery (7.4V, 450mAh - 850mAh, 25C+ discharge rating)
+[ ] 1x 2S LiPo Charger (B3 or similar balance charger)
+[ ] 1x SPST Mini Rocker Switch or Toggle Switch (Master Power Control)
+[ ] 1x JST-XH or XT30 Male/Female Connector Pair (Matching battery plug)
+
+================================================================================
+4. PASSIVES & NOISE SUPPRESSION
+================================================================================
+[ ] 1x 100µF Electrolytic Capacitor (16V/25V rated, power input smoothing)
+[ ] 2x 0.1µF Ceramic Capacitors (104, soldered across motor leads for noise reduction)
+
+================================================================================
+5. HARDWARE & FASTENERS
+================================================================================
+[ ] 12x M3 Phillips Screws (6mm length)
+[ ] 8x M3 Phillips Screws (10mm length)
+[ ] 16x M3 Hex Nuts
+[ ] 8x M3 Brass Standoffs (Male-Female, 10mm - 15mm length)
+[ ] 8x M2 Screws & Nuts (8mm length, for N20 brackets)
+
+================================================================================
+6. WIRING & CHASSIS
+================================================================================
+[ ] 1x 3D Printed / Acrylic / Carbon Fiber Line Follower Chassis Frame
+[ ] 20x Dupont Jumper Wires (Female-to-Female, 10cm - 15cm)
+[ ] 1x 22 AWG Red/Black Silicone Wire Spool (Power lines)
+[ ] 1x Heat Shrink Tubing Assortment Box

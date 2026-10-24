@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 Line Follower Control Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #fff; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        h2 { color: #00e676; margin-bottom: 5px; }
+        .card { background: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); width: 100%; max-width: 400px; margin-bottom: 15px; }
+        .btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .btn-start { background-color: #00e676; color: #000; }
+        .btn-stop { background-color: #ff1744; color: #fff; }
+        .btn-cal { background-color: #29b6f6; color: #000; }
+        .btn-conn { background-color: #ab47bc; color: #fff; }
+        .control-group { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
+        input[type="number"] { width: 80px; padding: 6px; border-radius: 4px; border: 1px solid #333; background: #2a2a2a; color: #fff; text-align: center; }
+        .status-box { font-size: 14px; text-align: center; color: #bbb; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>ESP32 Line Follower Dashboard</h2>
+    <div class="card">
+        <button class="btn btn-conn" onclick="connectBT()">Connect via Web Bluetooth</button>
+        <div id="status" class="status-box">Status: Disconnected</div>
+    </div>
+    <div class="card">
+        <button class="btn btn-start" onclick="sendCommand('START')">RUN ROBOT</button>
+        <button class="btn btn-stop" onclick="sendCommand('STOP')">STOP ROBOT</button>
+        <button class="btn btn-cal" onclick="sendCommand('CALIBRATE')">RE-CALIBRATE</button>
+    </div>
+    <div class="card">
+        <h3>Live PID Tuning</h3>
+        <div class="control-group"><label>Kp:</label><input type="number" id="kpVal" step="0.01" value="0.08" onchange="updatePID('KP')"></div>
+        <div class="control-group"><label>Ki:</label><input type="number" id="kiVal" step="0.0001" value="0.0001" onchange="updatePID('KI')"></div>
+        <div class="control-group"><label>Kd:</label><input type="number" id="kdVal" step="0.1" value="1.2" onchange="updatePID('KD')"></div>
+        <div class="control-group"><label>Base Speed:</label><input type="number" id="speedVal" step="5" value="200" onchange="updatePID('SPEED')"></div>
+    </div>
+    <script>
+        async function connectBT() {
+            document.getElementById('status').innerText = 'Status: Use Bluetooth Terminal App on phone or Web Bluetooth supported browser.';
+        }
+        function sendCommand(cmd) { console.log("Command:", cmd); }
+        function updatePID(type) {
+            let val = document.getElementById(type.toLowerCase() + 'Val')?.value || document.getElementById('speedVal').value;
+            sendCommand(type + ':' + val);
+        }
+    </script>
+</body>
+</html>

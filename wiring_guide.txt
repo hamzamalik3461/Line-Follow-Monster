@@ -1,0 +1,43 @@
+Pin-by-Pin Wiring & Net Connection Map
+
+================================================================================
+POWER & REGULATION PATH
+================================================================================
+[LiPo Battery 7.4V (+)]  ------> [Master Rocker Switch] ------> [LM2596 IN+]
+                                                         |----> [TB6612FNG VM]
+
+[LiPo Battery 7.4V (-)]  -------------------------------------> [COMMON GND RAIL]
+
+[LM2596 OUT+]            -- (Calibrated to 5.0V DC) ----------> [ESP32 5V Pin]
+                                                         |----> [TB6612FNG VCC]
+                                                         |----> [QTR-8RC VCC]
+
+================================================================================
+ESP32 MICROCONTROLLER TO MOTOR DRIVER (TB6612FNG)
+================================================================================
+ESP32 GPIO 14 (PWM)       ------> TB6612FNG PWMA
+ESP32 GPIO 26             ------> TB6612FNG AIN1
+ESP32 GPIO 27             ------> TB6612FNG AIN2
+ESP32 GPIO 25 (PWM)       ------> TB6612FNG PWMB
+ESP32 GPIO 12             ------> TB6612FNG BIN1
+ESP32 GPIO 13             ------> TB6612FNG BIN2
+ESP32 GPIO 33             ------> TB6612FNG STBY
+ESP32 GND Pin             ------> COMMON GND RAIL
+
+TB6612FNG AO1 / AO2       ------> Left N20 Gearmotor
+TB6612FNG BO1 / BO2       ------> Right N20 Gearmotor
+
+================================================================================
+ESP32 MICROCONTROLLER TO SENSOR ARRAY (POLOLU QTR-8RC)
+================================================================================
+QTR-8RC Sensor 1 (Far L)  ------> ESP32 GPIO 15
+QTR-8RC Sensor 2          ------> ESP32 GPIO 2
+QTR-8RC Sensor 3          ------> ESP32 GPIO 4
+QTR-8RC Sensor 4          ------> ESP32 GPIO 16
+QTR-8RC Sensor 5          ------> ESP32 GPIO 17
+QTR-8RC Sensor 6          ------> ESP32 GPIO 5
+QTR-8RC Sensor 7          ------> ESP32 GPIO 18
+QTR-8RC Sensor 8 (Far R)  ------> ESP32 GPIO 19
+
+QTR-8RC VCC               ------> +5.0V Regulated Rail
+QTR-8RC GND               ------> COMMON GND RAIL
